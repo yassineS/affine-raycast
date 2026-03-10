@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/specification/main/schema/mcp-config-schema.json",
+  "mcpServers": {
+    "affine": {
+      "command": "affine-mcp",
+      "env": {
+        "AFFINE_BASE_URL": "https://app.affine.pro",
+        "AFFINE_API_TOKEN": "YOUR_ACCESS_TOKEN",
+        "AFFINE_WORKSPACE_ID": "YOUR_DEFAULT_WORKSPACE_ID"
+      }
+    }
+  }
+}
