@@ -7,8 +7,7 @@ Quick commands to search and open AFFiNE workspaces and documents from Raycast. 
 - **Search AFFiNE Documents** – Search across all workspaces and open a doc in the browser.
 - **Open AFFiNE Workspace** – List workspaces and open one in the browser.
 - **Open AFFiNE Document** – List documents in your default workspace and open one.
-- **New AFFiNE Document** – Open AFFiNE in the browser (optionally in a specific workready  - run Prettier 3.8.1
-      Error: please commit or discard your uncommited changes first (git commit -a -m 'your changes')space).
+- **New AFFiNE Document** – Open AFFiNE in the browser (optionally in a specific workspace).
 - **Setup AFFiNE AI (MCP)** – In-app instructions to add the AFFiNE MCP server so Raycast AI can read/write your docs (use this + the extension for both quick commands and AI).
 
 **Desktop app:** Open docs in the AFFiNE desktop app via **Open in Desktop App** or **Copy Desktop App URL**.
