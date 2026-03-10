@@ -7,7 +7,11 @@ import {
   Toast,
 } from "@raycast/api";
 import { useEffect, useState } from "react";
-import { getWorkspaces, workspaceUrl, type AffineWorkspace } from "./affine-api";
+import {
+  getWorkspaces,
+  workspaceUrl,
+  type AffineWorkspace,
+} from "./affine-api";
 
 export default function OpenWorkspaceCommand() {
   const [workspaces, setWorkspaces] = useState<AffineWorkspace[]>([]);
@@ -36,11 +40,7 @@ export default function OpenWorkspaceCommand() {
   if (error) {
     return (
       <List>
-        <List.EmptyView
-          title="Error"
-          description={error}
-          icon="⚠️"
-        />
+        <List.EmptyView title="Error" description={error} icon="⚠️" />
       </List>
     );
   }

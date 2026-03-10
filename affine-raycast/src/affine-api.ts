@@ -79,7 +79,7 @@ export async function affineGraphQL<T>(
   baseUrl: string,
   token: string,
   query: string,
-  variables?: Record<string, unknown>
+  variables?: Record<string, unknown>,
 ): Promise<T> {
   const url = `${ensureNoTrailingSlash(baseUrl)}/graphql`;
   const res = await fetch(url, {
@@ -95,7 +95,10 @@ export async function affineGraphQL<T>(
     const text = await res.text();
     throw new Error(`AFFiNE API ${res.status}: ${text}`);
   }
-  const json = (await res.json()) as { data?: T; errors?: { message: string }[] };
+  const json = (await res.json()) as {
+    data?: T;
+    errors?: { message: string }[];
+  };
   if (json.errors?.length) {
     throw new Error(json.errors.map((e) => e.message).join(", "));
   }
@@ -107,12 +110,12 @@ export async function affineGraphQL<T>(
 
 export async function getWorkspaces(
   baseUrl: string,
-  token: string
+  token: string,
 ): Promise<AffineWorkspace[]> {
   const data = await affineGraphQL<{ workspaces: AffineWorkspace[] }>(
     baseUrl,
     token,
-    WORKSPACES_QUERY
+    WORKSPACES_QUERY,
   );
   return data.workspaces ?? [];
 }
@@ -120,7 +123,7 @@ export async function getWorkspaces(
 export async function getWorkspaceDocs(
   baseUrl: string,
   token: string,
-  workspaceId: string
+  workspaceId: string,
 ): Promise<AffineDoc[]> {
   const data = await affineGraphQL<{
     workspace: {
@@ -136,7 +139,7 @@ export async function searchWorkspace(
   token: string,
   workspaceId: string,
   keyword: string,
-  limit: number
+  limit: number,
 ): Promise<AffineSearchHit[]> {
   const data = await affineGraphQL<{
     workspace: {
@@ -156,20 +159,14 @@ export async function searchAllWorkspaces(
   baseUrl: string,
   token: string,
   keyword: string,
-  limitPerWorkspace: number = 20
+  limitPerWorkspace: number = 20,
 ): Promise<SearchResult[]> {
   const workspaces = await getWorkspaces(baseUrl, token);
   const results: SearchResult[] = [];
   const perWs = Math.max(5, Math.ceil(limitPerWorkspace / workspaces.length));
   for (const ws of workspaces) {
     try {
-      const docs = await searchWorkspace(
-        baseUrl,
-        token,
-        ws.id,
-        keyword,
-        perWs
-      );
+      const docs = await searchWorkspace(baseUrl, token, ws.id, keyword, perWs);
       if (docs.length > 0) {
         results.push({ workspaceId: ws.id, docs });
       }
@@ -181,7 +178,11 @@ export async function searchAllWorkspaces(
 }
 
 /** Build URL to open a document in the browser. */
-export function docUrl(baseUrl: string, workspaceId: string, docId: string): string {
+export function docUrl(
+  baseUrl: string,
+  workspaceId: string,
+  docId: string,
+): string {
   return `${ensureNoTrailingSlash(baseUrl)}/workspace/${workspaceId}/${docId}`;
 }
 
@@ -195,7 +196,7 @@ export function desktopAppUrl(
   baseUrl: string,
   workspaceId: string,
   docId: string,
-  newTab = true
+  newTab = true,
 ): string {
   const base = baseUrl.startsWith("http") ? baseUrl : `https://${baseUrl}`;
   const host = new URL(base).host;

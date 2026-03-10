@@ -31,7 +31,9 @@ export default function OpenDocCommand() {
       return;
     }
     if (!workspaceId?.trim()) {
-      setError("Set Default Workspace ID in extension preferences to list documents.");
+      setError(
+        "Set Default Workspace ID in extension preferences to list documents.",
+      );
       setLoading(false);
       return;
     }
@@ -76,18 +78,12 @@ export default function OpenDocCommand() {
                   url={desktopUrl}
                   title="Open in Desktop App"
                 />
-                <Action.OpenInBrowser
-                  url={url}
-                  title="Open in Browser"
-                />
+                <Action.OpenInBrowser url={url} title="Open in Browser" />
                 <Action.CopyToClipboard
                   content={desktopUrl}
                   title="Copy Desktop App URL"
                 />
-                <Action.CopyToClipboard
-                  content={url}
-                  title="Copy AFFiNE URL"
-                />
+                <Action.CopyToClipboard content={url} title="Copy Affine URL" />
               </ActionPanel>
             }
           />

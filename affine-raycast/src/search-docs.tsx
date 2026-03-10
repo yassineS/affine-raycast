@@ -51,13 +51,7 @@ export default function SearchDocsCommand() {
       isLoading={loading}
       throttle
     >
-      {error && (
-        <List.EmptyView
-          title="Error"
-          description={error}
-          icon="⚠️"
-        />
-      )}
+      {error && <List.EmptyView title="Error" description={error} icon="⚠️" />}
       {!error && query.trim() && totalDocs === 0 && !loading && (
         <List.EmptyView
           title="No documents found"
@@ -88,23 +82,20 @@ export default function SearchDocsCommand() {
                     url={desktopUrl}
                     title="Open in Desktop App"
                   />
-                  <Action.OpenInBrowser
-                    url={url}
-                    title="Open in Browser"
-                  />
+                  <Action.OpenInBrowser url={url} title="Open in Browser" />
                   <Action.CopyToClipboard
                     content={desktopUrl}
                     title="Copy Desktop App URL"
                   />
                   <Action.CopyToClipboard
                     content={url}
-                    title="Copy AFFiNE URL"
+                    title="Copy Affine URL"
                   />
                 </ActionPanel>
               }
             />
           );
-        })
+        }),
       )}
     </List>
   );

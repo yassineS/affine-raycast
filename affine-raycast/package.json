@@ -1,9 +1,9 @@
 {
   "name": "affine-raycast",
-  "title": "AFFiNE",
+  "title": "Affine",
   "description": "Search and open AFFiNE workspaces and documents from Raycast. Uses AFFiNE GraphQL API.",
   "icon": "icon.png",
-  "author": "Yassine Souilmi ",
+  "author": "yassine_souilmi",
   "license": "MIT",
   "platforms": [
     "macOS"
@@ -21,31 +21,31 @@
   "commands": [
     {
       "name": "search-docs",
-      "title": "Search AFFiNE Documents",
+      "title": "Search Affine Documents",
       "description": "Search documents across workspaces and open in browser",
       "mode": "view"
     },
     {
       "name": "open-workspace",
-      "title": "Open AFFiNE Workspace",
+      "title": "Open Affine Workspace",
       "description": "List workspaces and open one in browser",
       "mode": "view"
     },
     {
       "name": "open-doc",
-      "title": "Open AFFiNE Document",
+      "title": "Open Affine Document",
       "description": "List documents in default workspace and open in browser",
       "mode": "view"
     },
     {
       "name": "new-doc",
-      "title": "New AFFiNE Document",
+      "title": "New Affine Document",
       "description": "Open AFFiNE in browser to create a new document",
       "mode": "no-view"
     },
     {
       "name": "setup-mcp",
-      "title": "Setup AFFiNE AI (MCP)",
+      "title": "Setup Affine AI (mcp)",
       "description": "Instructions to add the AFFiNE MCP server so Raycast AI can read and write your docs",
       "mode": "view"
     }
@@ -80,12 +80,13 @@
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.11",
     "@types/node": "^22.10.0",
-    "eslint": "^9.16.0",
+    "eslint": "^8.57.0",
     "typescript": "^5.7.0"
   },
   "scripts": {
     "build": "ray build -e dist",
     "dev": "ray develop",
-    "lint": "ray lint"
+    "lint": "ray lint",
+    "publish": "npx @raycast/api@latest publish"
   }
 }

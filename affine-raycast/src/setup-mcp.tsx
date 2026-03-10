@@ -1,9 +1,4 @@
-import {
-  Action,
-  ActionPanel,
-  Detail,
-  getPreferenceValues,
-} from "@raycast/api";
+import { Action, ActionPanel, Detail, getPreferenceValues } from "@raycast/api";
 
 export default function SetupMCPCommand() {
   const { baseUrl, apiToken } = getPreferenceValues<{
@@ -27,7 +22,7 @@ export default function SetupMCPCommand() {
           },
         },
         null,
-        2
+        2,
       )
     : `{
   "mcpServers": {
@@ -83,7 +78,7 @@ Same credentials as this extension; no extra setup.
         <ActionPanel>
           <Action.OpenInBrowser
             url="https://github.com/DAWNCR0W/affine-mcp-server#readme"
-            title="Open MCP Server README"
+            title="Open Mcp Server Readme"
           />
         </ActionPanel>
       }
