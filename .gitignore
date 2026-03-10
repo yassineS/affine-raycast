@@ -2,4 +2,6 @@
 AFFiNE-inspect/
 
 .DS_Store
-.DS_Store
+
+# Raycast extension
+affine-raycast/node_modules/
